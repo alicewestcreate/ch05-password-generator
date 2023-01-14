@@ -97,36 +97,53 @@ let numeric = ""
 let special = ""
 
 
-
-length = prompt("Enter the length of password (between 10-64)")
-while (length < 10 || length > 64 ){
-  alert(`Invalid option, please try again.`)
-  length = prompt("Enter the length of password (between 10-64)")
-}
-
-lower = prompt(`Does the password require lowercase letter \n enter 'y' or 'n')`)
-while (lower !== "y" || lower !== "n")  {
-  alert(lower)
-  alert(`Invalid option, please try again.`)
-  lower = prompt(`Does the password require lowercase letter \n enter 'y' or 'n'`)
-}
-
-
-
-
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+    length = prompt("Enter the length of password (between 10-64)")
+    while (length < 10 || length > 64 ){
+      alert(`Invalid option, please try again.`)
+      length = prompt("Enter the length of password (between 10-64)")
+    }
+
+    lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n')`)
+    while (lower !== "y" && lower !== "n")  {
+      alert(`Invalid option, please try again.`)
+      lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n'`)
+    }
+
+    upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n')`)
+    while (upper !== "y" && upper !== "n")  {
+      alert(`Invalid option, please try again.`)
+      upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n'`)
+    }
+
+    numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
+    while (numeric !== "y" && numeric !== "n")  {
+      alert(`Invalid option, please try again.`)
+      numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
+    }
+
+    special = prompt(`Does the password require special characters? \n Enter 'y' or 'n')`)
+    while (special !== "y" && special !== "n")  {
+      alert(`Invalid option, please try again.`)
+      special = prompt(`Does the password require special characters? \n Enter 'y' or 'n'`)
+    }
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
+
+
+
 }
 
 // Function to generate password with user input
 function generatePassword() {
+
+
 
 }
 
@@ -143,3 +160,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
+
+
+// 
