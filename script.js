@@ -90,51 +90,116 @@ var upperCasedCharacters = [
 
 // variables
 
-let length = ""
-let lower = ""
-let upper = ""
-let numeric = ""
-let special = ""
+let options = {
+  length : "10",
+  lower : "y",
+  upper : "y",
+  numeric : "y",
+  special : "y",
+}
+
+let words = {
+  length : "length",
+  lower : "lowercases",
+  upper : "uppercases",
+  numeric : "numeric",
+  special : "special",
+}
+
+
+// // iterate over option object and returns its properties 
+// for ([key, value] of Object.entries(options)) {
+//   console.log(`${key}: ${value}`)
+// }
+
+// for (let key in options) {
+//   // this provide the properity
+//   console.log(`key = ${key}`)
+//   // this provide the value.
+//   console.log(options[key])
+// }
+
+
+
+
+
+options[key].forEach((key, index) => {
+  var words = words[index];
+  console.log(key, index);
+  
+});
+
+
+// for (let any in options) {
+
+//   options[any] = prompt(`Does the password require ENTTRY WORDS \n Enter 'y' or 'n')`)
+//   while (options[any] !== "y" && options[any] !== "n") {
+//     alert(`Invalid option, please try again.`)
+//     options[any] = prompt(`Does the password require ENTRY WORDS? \n Enter 'y' or 'n'`) 
+// }
+
+// }
+
+
+
+// for i in object 
+
+// every each property in options, 
+
+
+
+/*
+option.(ENTRY) = prompt(`Does the password require (ENTRY WORDS)? \n Enter 'y' or 'n')`)
+
+while (options.(ENTRY)) !== "y" && options.lower !== "n") {
+    alert(`Invalid option, please try again.`)
+    options.lower = prompt(`Does the password require ENTRY WORDS? \n Enter 'y' or 'n'`) 
+}
+*/
+
+
+
+
 
 
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-    length = prompt("Enter the length of password (between 10-64)")
-    while (length < 10 || length > 64 ){
+    options.length = prompt("Enter the length of password (between 10-64)")
+    while (options.length < 10 || options.length > 64 ){
       alert(`Invalid option, please try again.`)
-      length = prompt("Enter the length of password (between 10-64)")
+      options.length = prompt("Enter the length of password (between 10-64)")
     }
 
-    lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n')`)
-    while (lower !== "y" && lower !== "n")  {
+    options.lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n')`)
+    while (options.lower !== "y" && options.lower !== "n")  {
       alert(`Invalid option, please try again.`)
-      lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n'`)
+      options.lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n'`)
     }
 
-    upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n')`)
-    while (upper !== "y" && upper !== "n")  {
+    options.upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n')`)
+    while (options.upper !== "y" && options.upper !== "n")  {
       alert(`Invalid option, please try again.`)
-      upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n'`)
+      options.upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n'`)
     }
 
-    numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
-    while (numeric !== "y" && numeric !== "n")  {
+    options.numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
+    while (options.numeric !== "y" && options.numeric !== "n")  {
       alert(`Invalid option, please try again.`)
-      numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
+      options.numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
     }
 
-    special = prompt(`Does the password require special characters? \n Enter 'y' or 'n')`)
-    while (special !== "y" && special !== "n")  {
+    options.special = prompt(`Does the password require special characters? \n Enter 'y' or 'n')`)
+    while (options.special !== "y" && options.special !== "n")  {
       alert(`Invalid option, please try again.`)
-      special = prompt(`Does the password require special characters? \n Enter 'y' or 'n'`)
+      options.special = prompt(`Does the password require special characters? \n Enter 'y' or 'n'`)
     }
-
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
+  // return item[Math.floor()Math.random()]
 
 
 
