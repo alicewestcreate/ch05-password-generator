@@ -88,8 +88,33 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// variables
+
+let length = ""
+let lowercase = true
+let uppercase = true
+let numeric = true
+let special = true
+
+
+
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+
+  length = prompt("Enter the length of password (between 10-64)")
+
+  while (length < 10 || length > 64 ){
+    alert(`Invalid option, please try again.`)
+    length = prompt("Enter the length of password (between 10-64)")
+  }
+
+
+
+
+
+
 
 }
 
