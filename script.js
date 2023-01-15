@@ -1,3 +1,112 @@
+
+
+// Step 0
+// Generate a password when the button is clicked
+
+// Get references to the #generate element
+var generateBtn = document.querySelector('#generate');
+
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
+
+
+// STEP 1
+// Present a series of prompts for password criteria
+
+
+// Function to prompt user for password options
+function getPasswordOptions() {
+
+//Clearing the pool
+let charactersPool = " ";
+
+
+// STEP 1.A
+// Length of password
+
+let length = prompt(`Enter length of password (between 10-64)`)
+
+
+//STEP 1.B
+// At least 10 characters but no more than 64.
+
+if (length >= 10 && length <= 64) {
+
+  // Character types
+  // Lowercase
+  // Uppercase
+  // Numeric
+  // Special characters ($@%&*, etc)
+
+  let lowercaseConfirm = confirm(`Do you require lowercase letters`)
+  let uppercaseConfirm = confirm(`Do you require uppercase letters`)
+  let numericConfirm = confirm(`Do you require numbers`)
+  let specialConfirm = confirm(`Do you require special characters`)
+}
+
+// STEP 1.C
+// Code should validate for each input and at least one character type should be selected
+
+if (lowercaseConfirm === false && uppercaseConfirm === false && numericConfirm === false && specialConfirm === false) {
+  alert(`Wrong input`)
+} else {
+  if (lowercaseConfirm) {
+    //add lowers case array to pool array
+
+  }
+  if (uppercaseConfirm) {
+
+  }
+  if (numericConfirm) {
+
+  }
+  if (specialConfirm) {
+
+  }
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// Function for getting a random element from an array
+function getRandom(arr) {
+
+}
+
+// Function to generate password with user input
+function generatePassword() {
+
+}
+
+
+// STEP 4
+// Once prompts are answered then the password should be generated and displayed in an alert or written to the page
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password');
+
+  passwordText.value = password;
+}
+
+
+
+
+
+
+
+
+
 // Array of special characters to be included in password
 var specialCharacters = [
   '@',
@@ -88,152 +197,8 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// variables
-
-let options = {
-  length : "10",
-  lower : "",
-  upper : "",
-  numeric : "",
-  special : "",
-}
-
-let words = {
-  length : "length",
-  lower : "lowercases",
-  upper : "uppercases",
-  numeric : "numeric",
-  special : "special",
-}
-
-
-
-
-for (let property in options) {
-  
-  if (property === "length") { 
-    options[property] = prompt("Enter the length of password (between 10-64)")
-    // while entry is less than 10 or more than 64 or not a number, display error message
-    while (options[property] <= 9 || options[property] >= 64 || isNaN(options[property])) {
-      options[property] = "" //Clears the previous entry to enter the loop again. 
-      alert(`Invalid option, please try again.`)
-      options[property] = prompt("Enter the length of password (between 10-64)")
-    } 
-  }
-
-  else {
-    options[property] = prompt(`Does the password require ENTTRY WORDS \n Enter 'y' or 'n')`)
-      while (options[property] !== "yes" && options[property] !== "no") {
-        alert(`Invalid option, please try again.`)
-        options[property] = prompt(`Does the password require ENTTRY WORDS \n Enter 'y' or 'n')`)
-      }
-  }
-}
 
 
 
 
 
-
-
-
-
-
-
-
-// Function to prompt user for password options
-function getPasswordOptions() {
-
-
-  for (let property in options) {
-  
-    if (property === "length") { 
-      options[property] = prompt("Enter the length of password (between 10-64)")
-      // while entry is less than 10 or more than 64 or not a number, display error message
-      while (options[property] <= 9 || options[property] >= 64 || isNaN(options[property])) {
-        options[property] = "" //Clears the previous entry to enter the loop again. 
-        alert(`Invalid option, please try again.`)
-        options[property] = prompt("Enter the length of password (between 10-64)")
-      } 
-    }
-  
-    else {
-      options[property] = prompt(`Does the password require ENTTRY WORDS \n Enter 'y' or 'n')`)
-        while (options[property] !== "yes" && options[property] !== "no") {
-          alert(`Invalid option, please try again.`)
-          options[property] = prompt(`Does the password require ENTTRY WORDS \n Enter 'y' or 'n')`)
-        }
-    }
-  }
-  
-  
-  
-
-
-
-
-                          // options.length = prompt("Enter the length of password (between 10-64)")
-                          // while (options.length < 10 || options.length > 64 ){
-                          //   alert(`Invalid option, please try again.`)
-                          //   options.length = prompt("Enter the length of password (between 10-64)")
-                          // }
-
-                          // options.lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n')`)
-                          // while (options.lower !== "y" && options.lower !== "n")  {
-                          //   alert(`Invalid option, please try again.`)
-                          //   options.lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n'`)
-                          // }
-
-                          // options.upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n')`)
-                          // while (options.upper !== "y" && options.upper !== "n")  {
-                          //   alert(`Invalid option, please try again.`)
-                          //   options.upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n'`)
-                          // }
-
-                          // options.numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
-                          // while (options.numeric !== "y" && options.numeric !== "n")  {
-                          //   alert(`Invalid option, please try again.`)
-                          //   options.numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
-                          // }
-
-                          // options.special = prompt(`Does the password require special characters? \n Enter 'y' or 'n')`)
-                          // while (options.special !== "y" && options.special !== "n")  {
-                          //   alert(`Invalid option, please try again.`)
-                          //   options.special = prompt(`Does the password require special characters? \n Enter 'y' or 'n'`)
-                          // }
-}
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-  // return item[Math.floor()Math.random()]
-
-
-
-}
-
-// Function to generate password with user input
-function generatePassword() {
-
-
-
-}
-
-// Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
-
-
-
-
-// 
