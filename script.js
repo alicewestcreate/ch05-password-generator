@@ -143,24 +143,25 @@ function getPasswordOptions() {
   characterPrompts ()
 
 
-  // Validate each character type, if selected/true, push the array for that group to the characterPool array. 
-  if (lowercaseConfirm === false && uppercaseConfirm === false && numericConfirm === false && specialConfirm === false) {
-    alert(`Error - Please select at least one type of character`)
+    // Validate each character type, if selected/true, push the array for that group to the characterPool array. 
+    if (lowercaseConfirm === false && uppercaseConfirm === false && numericConfirm === false && specialConfirm === false) {
+      alert(`Error - Please select at least one type of character`)
     characterPrompts ()
-  } else {
-    if (lowercaseConfirm) {
+    }  
+    
+    if (lowercaseConfirm === true) {
       charactersPool.push(...lowerCasedCharacters)
     }
-    if (uppercaseConfirm) {
+    if (uppercaseConfirm === true) {
       charactersPool.push(...upperCasedCharacters)
     }
-    if (numericConfirm) {
+    if (numericConfirm === true) {
       charactersPool.push(...numericCharacters)
     }
-    if (specialConfirm) {
+    if (specialConfirm === true) {
       charactersPool.push(...specialCharacters)
     }
-  }
+  
   return 
 
   } // End of getPasswordOptions function
