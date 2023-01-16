@@ -18,9 +18,8 @@ To always create the MVP, before refactoring or improving code.
 
 ## Visual of the program
 
-```md
-![alt text](assets/Password-Generator-Visual.png)
-```
+![alt text](/assets/Password-Generator-Visual.png)
+
 
 
 
