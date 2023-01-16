@@ -88,122 +88,114 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// variables
-
-let options = {
-  length : "10",
-  lower : "y",
-  upper : "y",
-  numeric : "y",
-  special : "y",
-}
-
-let words = {
-  length : "length",
-  lower : "lowercases",
-  upper : "uppercases",
-  numeric : "numeric",
-  special : "special",
-}
-
-
-// // iterate over option object and returns its properties 
-// for ([key, value] of Object.entries(options)) {
-//   console.log(`${key}: ${value}`)
-// }
-
-// for (let key in options) {
-//   // this provide the properity
-//   console.log(`key = ${key}`)
-//   // this provide the value.
-//   console.log(options[key])
-// }
 
 
 
 
 
-options[key].forEach((key, index) => {
-  var words = words[index];
-  console.log(key, index);
-  
-});
-
-
-// for (let any in options) {
-
-//   options[any] = prompt(`Does the password require ENTTRY WORDS \n Enter 'y' or 'n')`)
-//   while (options[any] !== "y" && options[any] !== "n") {
-//     alert(`Invalid option, please try again.`)
-//     options[any] = prompt(`Does the password require ENTRY WORDS? \n Enter 'y' or 'n'`) 
-// }
-
-// }
-
-
-
-// for i in object 
-
-// every each property in options, 
-
-
-
-/*
-option.(ENTRY) = prompt(`Does the password require (ENTRY WORDS)? \n Enter 'y' or 'n')`)
-
-while (options.(ENTRY)) !== "y" && options.lower !== "n") {
-    alert(`Invalid option, please try again.`)
-    options.lower = prompt(`Does the password require ENTRY WORDS? \n Enter 'y' or 'n'`) 
-}
-*/
 
 
 
 
+// // Step 0
+// // Generate a password when the button is clicked
 
+// // Get references to the #generate element
+// var generateBtn = document.querySelector('#generate');
+
+// // Add event listener to generate button
+// generateBtn.addEventListener('click', writePassword);
+
+
+
+
+// STEP 1
+// Present a series of prompts for password criteria
+
+//Clearing the pool
+let charactersPool = [];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-    options.length = prompt("Enter the length of password (between 10-64)")
-    while (options.length < 10 || options.length > 64 ){
-      alert(`Invalid option, please try again.`)
-      options.length = prompt("Enter the length of password (between 10-64)")
-    }
+//Clearing the pool
+charactersPool = [];
+console.log(`Character Pool ${charactersPool}`)
 
-    options.lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n')`)
-    while (options.lower !== "y" && options.lower !== "n")  {
-      alert(`Invalid option, please try again.`)
-      options.lower = prompt(`Does the password require lowercase letters? \n Enter 'y' or 'n'`)
-    }
+// STEP 1.A
+// Length of password
+let passwordLength = prompt(`Enter length of password (between 10-64)`)
+console.log(passwordLength)
 
-    options.upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n')`)
-    while (options.upper !== "y" && options.upper !== "n")  {
-      alert(`Invalid option, please try again.`)
-      options.upper = prompt(`Does the password require uppercase letters? \n Enter 'y' or 'n'`)
-    }
+//STEP 1.B
+// At least 10 characters but no more than 64.
 
-    options.numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
-    while (options.numeric !== "y" && options.numeric !== "n")  {
-      alert(`Invalid option, please try again.`)
-      options.numeric = prompt(`Does the password require number? \n Enter 'y' or 'n'`)
-    }
+let lowercaseConfirm = " "
+let uppercaseConfirm = " "
+let numericConfirm = " "
+let specialConfirm = " "
 
-    options.special = prompt(`Does the password require special characters? \n Enter 'y' or 'n')`)
-    while (options.special !== "y" && options.special !== "n")  {
-      alert(`Invalid option, please try again.`)
-      options.special = prompt(`Does the password require special characters? \n Enter 'y' or 'n'`)
-    }
+if (passwordLength >= 10 && passwordLength <= 64) {
+  // Character types // Lowercase // Uppercase // Numeric // Special characters ($@%&*, etc)
+  lowercaseConfirm = confirm(`Do you require lowercase letters`)
+  uppercaseConfirm = confirm(`Do you require uppercase letters`)
+  numericConfirm = confirm(`Do you require numbers`)
+  specialConfirm = confirm(`Do you require special characters`)
 }
+
+// STEP 1.C
+// Code should validate for each input and at least one character type should be selected
+
+if (lowercaseConfirm === false && uppercaseConfirm === false && numericConfirm === false && specialConfirm === false) {
+  alert(`Wrong input`)
+} else {
+  if (lowercaseConfirm) {
+    charactersPool.push(...lowerCasedCharacters)
+  }
+  if (uppercaseConfirm) {
+    charactersPool.push(...upperCasedCharacters)
+  }
+  if (numericConfirm) {
+    charactersPool.push(...numericCharacters)
+  }
+  if (specialConfirm) {
+    charactersPool.push(...specialCharacters)
+
+  }
+}
+
+return
+
+// console.log(lowercaseConfirm, uppercaseConfirm, numericConfirm, specialConfirm)
+// console.log(`Character Pool ${charactersPool}`)
+
+} // End of getPasswordOptions function
+
+// getPasswordOptions()
+// console.log(`${charactersPool}`)
+
+
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+// function getRandom(arr) {
 
-  // return item[Math.floor()Math.random()]
-
-
-
+  charactersPool = getPasswordOptions()
+  
+for (let index = 0; index < passwordLength; index++) {
+  // Produce a randomised number, from 0 to length of array
+  let randomIndex = Math.floor(Math.random() * charactersPool.length)
+  // assigned randomised number as an index number, to get corrosponding item
+  let item = charactersPool[randomIndex]
+  console.log(`Item is: ${item}`)
 }
+
+// } // End of getRandom function
+
+
+
+
+
+
 
 // Function to generate password with user input
 function generatePassword() {
@@ -212,21 +204,25 @@ function generatePassword() {
 
 }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+// STEP 4
+// Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
-  passwordText.value = password;
-}
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector('#password');
 
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+//   passwordText.value = password;
+// }
 
 
 
 
-// 
+
+
+
+
+
+
+
